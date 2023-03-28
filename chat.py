@@ -1,0 +1,17 @@
+import openai
+
+openai.api_key = "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"
+
+while True:
+
+    prompt = input("\nEnter a question: ")
+
+    if prompt == "exit":
+        break
+
+    completion = openai.Completion.create(engine="text-davinci-003",
+                                          prompt=prompt,
+                                          n=1,
+                                          max_tokens=4000)
+
+    print(completion.choices[0].text)
